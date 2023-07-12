@@ -1,0 +1,175 @@
+@import "base.css";
+body{
+    max-height: 50vh !important;
+    margin: 0;
+    padding: 0;
+    background: var(--clr-bg-blue-dark);
+    overflow: hidden;
+}
+
+.shorten-url{
+    height: 8vh;
+}
+
+.triangle{
+    bottom: 0;
+    left: 0;
+}
+
+.z-index--1{
+    z-index: -1;
+}
+.z-index-0{
+    z-index: 0;
+}
+
+.animation-primary{
+    animation-name: animation-logo;
+    position: relative;
+    animation-duration: 7s;
+    animation-iteration-count:initial;
+    /*animation: animation-floating infinite  3s;*/
+    animation:
+            /*animation-logo linear 8s,*/
+            3s animation-floating 0s infinite;
+}
+
+@keyframes animation-logo {
+    0% {
+        /*fill:red;*/
+        left:1500px;
+        top:-100px;
+        width: 10%;
+    }
+    25%  {
+        /*fill:yellow;*/
+        right:800px;
+        top:500px;
+        width: 10%;
+    }
+    50%  {
+        /*fill:blue;*/
+        left: -200px;
+        top:200px;
+        width: 50%;
+    }
+    65%  {
+        /*fill:blue;*/
+        right: 200px;
+        top:500px;
+        width: 50%;
+    }
+    75%  {
+        left: 300px;
+        bottom:400px;
+        width: 100%;
+
+    }
+    100% {
+        /*fill:red;*/
+        left:0px;
+        top:0px;
+        width: 100%;
+    }
+}
+
+@keyframes animation-floating {
+    0% { transform: translate(0,  0px); }
+    50%  { transform: translate(0, 25px); }
+    100%   { transform: translate(0, -0px); }
+}
+
+/*Star*/
+.star{
+    position: absolute;
+    top: 0px;
+    left: 1500px;
+    width: 4px;
+    height: 4px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1), 0 0 0 8px rgba(255, 255, 255, 0.1), 0 0 20px rgba(255, 255, 255, 1)  ;
+    animation:  animate 5s linear infinite;
+    z-index: -1;
+}
+
+.star::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px;
+    height: 1px;
+    background: linear-gradient(90deg, #fff, transparent);
+}
+
+.star:nth-child(1){
+    top: -100px;
+    right: 700px;
+    left:initial;
+    animation-delay:8s ;
+    animation-duration: 4s;
+}
+.star:nth-child(2){
+    top: -100px;
+    right: 1000px;
+    left:initial;
+    animation-delay:4s ;
+    animation-duration: 4s;
+}
+.star:nth-child(3){
+    top: -100px;
+    left: 1500px;
+    right:initial;
+    animation-delay:2s ;
+    animation-duration: 4s;
+}
+.star:nth-child(4){
+    top: -100px;
+    left: 1700px;
+    right:initial;
+    animation-delay:5s ;
+    animation-duration: 4s;
+}
+.star:nth-child(5){
+    top: -100px;
+    left: 1900px;
+    right:initial;
+    animation-delay:4s ;
+    animation-duration: 4s;
+}
+.star:nth-child(6){
+    top: -100px;
+    left: 2200px;
+    right:initial;
+    animation-delay:6s ;
+    animation-duration: 4s;
+}
+
+.star:nth-child(7){
+    top: -100px;
+    left: 2400px;
+    right:initial;
+    animation-delay:7s ;
+    animation-duration: 4s;
+}
+@keyframes animate {
+    0%
+    {
+        transform: rotate(315deg) translateX(0);
+        opacity: 1;
+    }
+    70%
+    {
+        opacity: 1;
+
+    }
+    100%
+    {
+        transform: rotate(315deg) translateX(-1500px);
+        opacity: 0;
+
+    }
+
+}
+/*Star*/
