@@ -1,6 +1,5 @@
 <script setup>
 import {onUpdated, ref} from "vue";
-import TableURLS from "@/components/TableURLS.vue";
 
 
 
@@ -9,56 +8,53 @@ let longUrl = '';
 const shortedUrl = ref("");
 
 const groupShortedUrls = ref([])
+
 // const groupShortedUrls = []
 //?Variables
 
-onUpdated(() =>{
-})
 
 // !Methods
 const clickCutOutLink = function () {
 
-  shortedUrl.value = longUrl
+  // Datos de autenticación de la API de Bitly
+  const accessToken = 'b60c963a6f3ef72410019d7782758d5a18625283';
 
-  groupShortedUrls.value.push({
-    longUrl: longUrl,
-    shortedUrl: shortedUrl.value
-  })
+  // URL que deseas acortar
+  // const longUrl = 'https://vuejs.org/api/sfc-script-setup.html#top-level-await';
 
-  groupShortedUrls.value.reverse()
+  // Configuración de la solicitud HTTP
+  const config = {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      'Content-Type': 'application/json',
+    },
+  };
 
-  console.log("Group of url", groupShortedUrls.value)
+  // Cuerpo de la solicitud HTTP
+  const data = {
+    long_url: longUrl,
+  };
 
-  // groupShortedUrls.value.push(items)
+  // Realizar la solicitud POST para acortar la URL
+  axios.post('https://api-ssl.bitly.com/v4/shorten', data, config)
+      .then(response => {
+        shortedUrl.value = response.data.link
+
+        groupShortedUrls.value.push({
+          longUrl: longUrl,
+          shortedUrl: shortedUrl.value
+        })
+
+        groupShortedUrls.value.reverse()
 
 
-  // // Datos de autenticación de la API de Bitly
-  // const accessToken = 'b60c963a6f3ef72410019d7782758d5a18625283';
-  //
-  // // URL que deseas acortar
-  // // const longUrl = 'https://vuejs.org/api/sfc-script-setup.html#top-level-await';
-  //
-  // // Configuración de la solicitud HTTP
-  // const config = {
-  //   headers: {
-  //     Authorization: `Bearer ${accessToken}`,
-  //     'Content-Type': 'application/json',
-  //   },
-  // };
-  //
-  // // Cuerpo de la solicitud HTTP
-  // const data = {
-  //   long_url: longUrl,
-  // };
-  //
-  // // Realizar la solicitud POST para acortar la URL
-  // axios.post('https://api-ssl.bitly.com/v4/shorten', data, config)
-  //     .then(response => {
-  //       shortedURL.value = response.data.link
-  //     })
-  //     .catch(error => {
-  //       console.error(error);
-  //     });
+        if (groupShortedUrls.value.length > 5){
+          groupShortedUrls.value.splice(5)
+        }
+      })
+      .catch(error => {
+        console.error(error);
+      });
 
 
 }
@@ -127,9 +123,9 @@ const clickCopyShortedUrl = function () {
       </tr>
       </thead>
       <tbody>
-      <tr class="border-bottom border-warning" v-for="url in groupShortedUrls">
+      <tr class="" v-for="url in groupShortedUrls">
         <td class="pe-5"><a class="fs-4 text-decoration-none text-white" :href="url.longUrl">{{url.longUrl}}</a></td>
-        <td><a class="fs-4 text-decoration-none text-white" :href="url.shortedUrl"> {{url.shortedUrl}}</a></td>
+        <td><a class=" fs-4 text-decoration-none text-warning" :href="url.shortedUrl"> {{url.shortedUrl}}</a></td>
       </tr>
       </tbody>
     </table>
