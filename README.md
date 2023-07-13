@@ -1,3 +1,4 @@
+
 # practica-novalink
 
 This template should help get you started developing with Vue 3 in Vite.
@@ -29,3 +30,7 @@ npm run dev
 ```sh
 npm run build
 ```
+# Preview
+![NovaLink preview](https://i.imgur.com/mUN51a9.png)
+
+
