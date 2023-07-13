@@ -1,19 +1,36 @@
 <script setup>
+import {onUpdated, ref} from "vue";
+import TableURLS from "@/components/TableURLS.vue";
 
-import {ref} from "vue";
 
 
+//?Variables
 let longUrl = '';
-const shortedURL = ref("")
+const shortedUrl = ref("");
 
-const shortedUrls = []
+const groupShortedUrls = ref([])
+// const groupShortedUrls = []
+//?Variables
 
+onUpdated(() =>{
+})
 
 // !Methods
 const clickCutOutLink = function () {
-  console.log('URL' , longUrl)
-  console.log('SHORTED URL', shortedURL)
-  shortedURL.value = longUrl
+
+  shortedUrl.value = longUrl
+
+  groupShortedUrls.value.push({
+    longUrl: longUrl,
+    shortedUrl: shortedUrl.value
+  })
+
+  groupShortedUrls.value.reverse()
+
+  console.log("Group of url", groupShortedUrls.value)
+
+  // groupShortedUrls.value.push(items)
+
 
   // // Datos de autenticación de la API de Bitly
   // const accessToken = 'b60c963a6f3ef72410019d7782758d5a18625283';
@@ -44,11 +61,10 @@ const clickCutOutLink = function () {
   //     });
 
 
-
 }
 
-const clickCopyShortedUrl = function (){
-  navigator.clipboard.writeText(shortedURL.value)
+const clickCopyShortedUrl = function () {
+  navigator.clipboard.writeText(shortedUrl.value)
 }
 
 // !Methods
@@ -83,7 +99,7 @@ const clickCopyShortedUrl = function (){
   <!--        Link shorted-->
   <div class="col-4 px-0 mt-5 pt-5">
     <input
-        :value="shortedURL"
+        :value="shortedUrl"
         aria-label=".form-control-lg example"
         class="form-control form-control-lg rounded-0 shorten-url"
         placeholder=""
@@ -91,14 +107,35 @@ const clickCopyShortedUrl = function (){
   </div>
   <div class="px-0 col-4 mt-5 pt-5">
     <button
-        v-on:click="clickCopyShortedUrl"
-        class="m-0 btn btn-lg btn-warning rounded-0 shorten-url ">
+        class="m-0 btn btn-lg btn-warning rounded-0 shorten-url "
+        v-on:click="clickCopyShortedUrl">
       <span
-        class="material-symbols-outlined">
+          class="material-symbols-outlined">
         file_copy
       </span>
     </button>
   </div>
+
+  <!--      Table All URLS-->
+
+  <div class="p-0 mt-5">
+    <table class="">
+      <thead>
+      <tr class="fs-3">
+        <th class="pe-5" scope="col">Long Url</th>
+        <th scope="col">Shorted Url</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="border-bottom border-warning" v-for="url in groupShortedUrls">
+        <td class="pe-5"><a class="fs-4 text-decoration-none text-white" :href="url.longUrl">{{url.longUrl}}</a></td>
+        <td><a class="fs-4 text-decoration-none text-white" :href="url.shortedUrl"> {{url.shortedUrl}}</a></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <!--      Table All URLS-->
+
 
   <!--        Link shorted-->
 </template>

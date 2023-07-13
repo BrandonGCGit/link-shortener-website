@@ -6,36 +6,6 @@ import SvgBGStars from "@/components/svg/SvgBGStars.vue";
 import SvgLogo from "@/components/svg/SvgLogo.vue";
 import ComponentsForm from "@/components/ComponentsForm.vue";
 import BottomSection from "@/components/BottomSection.vue";
-
-
-// Datos de autenticación de la API de Bitly
-// const accessToken = 'b60c963a6f3ef72410019d7782758d5a18625283';
-
-// // URL que deseas acortar
-// const longUrl = 'https://vuejs.org/api/sfc-script-setup.html#top-level-await';
-
-// Configuración de la solicitud HTTP
-// const config = {
-//   headers: {
-//     Authorization: `Bearer ${accessToken}`,
-//     'Content-Type': 'application/json',
-//   },
-// };
-//
-// // Cuerpo de la solicitud HTTP
-// const data = {
-//   long_url: longUrl,
-// };
-//
-// // Realizar la solicitud POST para acortar la URL
-// axios.post('https://api-ssl.bitly.com/v4/shorten', data, config)
-//     .then(response => {
-//       console.log(response.data.link);
-//     })
-//     .catch(error => {
-//       console.error(error);
-//     });
-
 </script>
 
 <template>
@@ -63,6 +33,7 @@ import BottomSection from "@/components/BottomSection.vue";
         <components-form></components-form>
       </div>
       <!--      Components Form inputs-->
+
 
     </section>
 

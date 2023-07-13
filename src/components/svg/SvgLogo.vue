@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <svg class="logo animation-primary animation-floating" xmlns="" viewBox="0 0 252.8 183.6">
+  <svg class="logo animation-primary animation-floating" viewBox="0 0 252.8 183.6" xmlns="">
     <g id="Capa_1-2" data-name="Capa 1">
       <path class="cls-1"
             d="M121.5,80C104.2,67.3,86.9,54.5,69.6,41.8,86.5,27.9,103.4,13.9,120.3,0c16.9,13.9,33.8,27.9,50.7,41.8C154.6,54.5,138.1,67.3,121.5,80Z"/>

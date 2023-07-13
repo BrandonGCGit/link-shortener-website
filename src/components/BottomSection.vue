@@ -4,17 +4,17 @@
 
 <template>
   <div class="col">
-    <svg class="position-absolute triangle z-index--1" version="1.1" xmlns="http://www.w3.org/2000/svg"
-         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-         viewBox="0 0 1920 1080" style="enable-background:new 0 0 1920 1080;" xml:space="preserve">
+    <svg class="position-absolute triangle z-index--1" style="enable-background:new 0 0 1920 1080;" version="1.1"
+         viewBox="0 0 1920 1080" x="0px" xml:space="preserve"
+         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" y="0px">
               <g id="Capa_2">
 	<path class="st0" d="M1920,1079.5H0c640-122.9,1280-245.8,1920-368.6C1920,833.7,1920,956.6,1920,1079.5z"/>
                 <g>
 		<defs>
-			<rect id="SVGID_1_" x="1485.6" y="863.5" width="26.7" height="115.9"/>
+			<rect id="SVGID_1_" height="115.9" width="26.7" x="1485.6" y="863.5"/>
 		</defs>
                   <clipPath id="SVGID_2_">
-			<use xlink:href="#SVGID_1_" style="overflow:visible;"/>
+			<use style="overflow:visible;" xlink:href="#SVGID_1_"/>
 		</clipPath>
                   <g class="st1">
 			<path class="st2" d="M1498.2,973.4v4.9c0,0-1.1,1.6-3.2,1c-2.1-0.6-9.4-4.4-8.9-5.6c1.3-2.9,4.5-0.9,8.5-0.6
@@ -47,10 +47,10 @@
 	</g>
                 <g>
 		<defs>
-			<rect id="SVGID_3_" x="1716" y="768.4" width="26.7" height="115.9"/>
+			<rect id="SVGID_3_" height="115.9" width="26.7" x="1716" y="768.4"/>
 		</defs>
                   <clipPath id="SVGID_4_">
-			<use xlink:href="#SVGID_3_" style="overflow:visible;"/>
+			<use style="overflow:visible;" xlink:href="#SVGID_3_"/>
 		</clipPath>
                   <g class="st9">
 			<path class="st10" d="M1728.4,878.3v4.9c0,0-1.1,1.6-3.2,1c-2.1-0.6-9.4-4.4-8.9-5.6c1.3-2.9,4.5-0.9,8.6-0.6
